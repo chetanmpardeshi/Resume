@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chetan Pardeshi - Software Test Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="40%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,.1)"/><stop offset="100%" style="stop-color:rgba(255,255,255,0)"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>');
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background-image: url("selfie.jpg");
+            background-size: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            animation: fadeInLeft 1s ease-out 0.3s both;
+        }
+
+        .profile-info .title {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            animation: fadeInLeft 1s ease-out 0.5s both;
+        }
+
+        .contact-info {
+            gap: 25px;
+            flex-wrap: wrap;
+            animation: fadeInLeft 1s ease-out 0.7s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            padding: 40px;
+            font-size: small;
+            flex: 1;
+        }
+		.no-right-column{display: block !important;}
+		
+        .left-column {
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .right-column {
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #e74c3c;
+            transition: width 0.5s ease;
+        }
+
+        .section:hover h2::after {
+            width: 100%;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before,
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .experience-item:hover::before,
+        .education-item:hover::before {
+            left: 100%;
+        }
+
+        .experience-item:hover,
+        .education-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .item-company {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .item-date {
+            background: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .skill-category:hover h3 {
+            color: white;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 5px 9px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover .skill-tag {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .sidebar-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-section:hover {
+            background: #e3f2fd;
+            transform: scale(1.02);
+        }
+
+        .certifications .cert-item {
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #e74c3c;
+            transition: all 0.3s ease;
+        }
+
+        .certifications .cert-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h4 {
+            margin: 10px;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Pagination Styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pagination button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .pagination button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .pagination button.active {
+            background: #e74c3c;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .pagination button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .profile-info h1 {
+                font-size: 2em;
+            }
+
+            .pagination {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape">🔧</div>
+        <div class="shape">💻</div>
+        <div class="shape">🚀</div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="profile-section">
+                <div class="profile-img"></div>
+                <div class="profile-info" style="width:500px;">
+                    <h1>Chetan Pardeshi</h1>
+                    <div class="title">Software Test Engineer</div>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>chetanmpardeshi@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 8459360890</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Chinchwad, Pune</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Page 1: Professional Summary & Recent Experience -->
+            <div class="page-content active" id="page1">
+                <div class="main-content">
+                    <div class="left-column">
+                        <div class="section">
+                            <h2><i class="fas fa-user-circle"></i> Professional Summary</h2>
+                            <ul style="text-align:justify;">
+                                <li><b>11+ years of IT experience</b> with expertise across <b>Software Testing (8 years)</b> and <b>Marketing Automation – Adobe Marketo (3 years).</b></li>
+                                
+                                <li><b>Software Testing (8 years):</b>
+                                <ul> 
+                                <li>Manual Testing (5 years) – Strong knowledge of SDLC/STLC, Agile/Scrum, and diverse testing types: Functional, Regression, UI, and Non-Functional.</li>
+                                <li><b>Automation Testing (3 years)</b> – Skilled in Selenium WebDriver with Java, BDD (Cucumber), REST API testing, and CI/CD pipelines using Jenkins.</li>
+                                </ul>
+                                </li>
+                                
+                                <li><b>Marketing Automation (3 years – Adobe Marketo Tool):</b> <br />
+                               Developed and performed QA for end-to-end <b>Marketo programs</b>, ensuring flawless execution across campaigns. Proficient in <b>HTML, CSS, and JavaScript</b> for email design, landing page development, troubleshooting, customization, and integrations with Unbounce.</li>
+                                
+                               <li><b>QA professional</b> with expertise across software, web, mobile, automotive, and IoT applications. Skilled in designing and maintaining automated test frameworks, test suites, test cases & test plans</li>
+                               <li><b>Exploring</b> emerging AI-driven automation tools including Generative AI, N8N, MCP Servers, AI Agents, TestRigor, and Cursor.</li>
+                              <li> A <b>strong collaborator</b> with developers, product managers, and cross-functional teams to deliver robust, high-quality solutions.</li> 
+                               <li>Experienced in <b>mentoring</b> junior testers, promoting QA best practices, and driving innovation, efficiency, and business value through technology and automation.</li>
+                              </ul>
+                        </div>
+
+                        <div class="section">
+                            <h2><i class="fas fa-briefcase"></i> Recent Experience</h2>
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <div>
+                                        <span class="item-company">Phreesia</span> : 
+                                        <span class="item-title">Web QA, Analyst | Technical Lead</span>
+                                        </div>
+                                        <div class="">Project Name: Marketo Campaigns (Adobe Marketo Engage) <br>[Team Size - 6]</div>
+                                    </div>
+                                    <div class="item-date">Apr 2022 - Aug 2025</div>
+                                </div>
+                                <div>
+                                <p>Project Description - Adobe Marketo Engage: A marketing automation tool that helps create and run personalized campaigns, manage leads, and track results. It connects with CRM systems to improve sales and marketing alignment.</p>
+                                <br>
+                                    <p class="item-company">Roles</p>
+                                <ul style="text-align:justify;">
+                                  <li><b>Email QA:</b> Performed end-to-end QA of <b>Marketo email campaigns (emails, landing pages, forms, nurture workflows)</b>, validating responsive HTML templates across Outlook, Gmail and mobile clients. Ensured rendering accuracy, accessibility compliance, correct personalization tokens, and flawless tracking links before launch.</li>
+                                  
+                                  <li><b>Web QA:</b> QA-tested <b>landing pages, forms</b>, including functional, regression, cross-browser testing, and device compatibility checks. Verified form submissions, lead flows, and SFDC sync for data accuracy.</li>
+                                  
+                                  <li><b>Collaboration:</b> Worked with cross-functional teams (Marketing Ops, Demand Gen, Developers) to troubleshoot issues, review test plans, log defects, and provide QA sign-off.</li>
+                                  
+                                  <li><b>Development & Mentorship:</b> Built responsive emails, templates, landing pages, and forms using HTML, CSS, and JavaScript. Trained and mentored team members on campaign QA best practices, and technical troubleshooting.</li>
+                                </ul>
+                                <br>
+                                    <p>Skills & Tools - Adobe Marketo, Salesforce, HTML, CSS, JavaScript, QA Testing (Functional, Regression, Cross-Browser/Client), Email Rendering Tools</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div class="section">
+                            <h2><i class="fas fa-cogs"></i> Technical Skills</h2>
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                   <h4>Automation</h4> 
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Selenium</span>
+                                        <span class="skill-tag">Cucumber</span>
+                                        <span class="skill-tag">TestNG</span>
+                                        <span class="skill-tag">Maven</span>
+                                        <span class="skill-tag">POM</span>
+                                        <span class="skill-tag">Postman</span>
+                                        <span class="skill-tag">REST API</span>
+                                    </div>
+                                    <h4>Programming</h4>	
+                                    <div class="skill-tags">								
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">PHP</span>
+                                    <span class="skill-tag">OOPS</span>
+                                    <span class="skill-tag">SQL</span>
+                                    </div>
+                                    <h4>Front-End</h4>	
+                                    <div class="skill-tags">
+                                    <span class="skill-tag">HTML</span>
+                                    <span class="skill-tag">CSS</span>
+                                    <span class="skill-tag">JavaScript</span>
+                                    </div>
+                                    <h4>Bug Tracker</h4>	
+                                    <div class="skill-tags">
+                                    <span class="skill-tag">Jira</span>
+                                    <span class="skill-tag">Mantis</span>
+                                    <span class="skill-tag">PTC Integrity</span>
+                                    <span class="skill-tag">Monday</span>
+                                    </div>
+									 <h4>Security</h4>	
+                                    <div class="skill-tags">
+                                    <span class="skill-tag">BurpSuite</span>
+                                    <span class="skill-tag">IBM Rational Scan</span>
+                                    </div>
+                                    <h4>CI-CD</h4>	
+                                    <div class="skill-tags">
+                                    <span class="skill-tag">Jenkins</span>
+                                    <span class="skill-tag">Git-Hub</span>
+                                    </div>
+                                    <h4>Marketing Automation</h4>	
+                                    <div class="skill-tags">
+                                    <span class="skill-tag">Adobe Marketo</span>
+                                    <span class="skill-tag">Unbounce</span>
+                                    <span class="skill-tag">Salesforce</span>
+                                    </div>	
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h2><i class="fas fa-trophy"></i> Key Achievements</h2><br>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: #f39c12; margin-right: 8px;"></i>Reduced regression testing time by 40% using Selenium automation in Java.</li>
+                                <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: #f39c12; margin-right: 8px;"></i>Tested and launched 300+ email campaigns and 50+ webinars with error-free execution.</li>
+                                <li style="margin-bottom: 10px;"><i class="fas fa-star" style="color: #f39c12; margin-right: 8px;"></i>Mentored and trained team members</li>
+                                <li><i class="fas fa-star" style="color: #f39c12; margin-right: 8px;"></i>Recognized as a go-to person for complex QA troubleshooting.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2: KPIT Experience -->
+            <div class="page-content" id="page2">
+                <div class="main-content">
+                    <div class="left-column">
+                        <div class="section">
+                            <h2><i class="fas fa-briefcase"></i>Professional Experience</h2>
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <div>
+                                        <span class="item-company">KPIT</span> : 
+                                        <span class="item-title">Automation Test Engineer</span>
+                                        </div>
+                                        <div class="">Project Name: ECU Editor [Team Size - 10]</div>
+                                    </div>
+                                    <div class="item-date">March 2020 - Nov 2020</div>
+                                </div>
+                                <div>
+                                <p>Project Description - ECU Editor tool is Data Diagnostic Tool which author data for ECU in vehicles. Tool provide the features like Add vehicle, ECU Family, Import, export data etc.</p>
+                                <br>
+                                    <p class="item-company">Roles</p>
+                                     <ul style="text-align:justify;">
+                                          <li>Designed and automated <b>Keyword-Driven</b> and <b>Data-Driven</b> test scripts, maintaining reusable frameworks that reduced manual effort by <b>60%</b>.</li>
+                                          <li>Integrated automation into <b>Jenkins</b>, enabling scheduled execution and cutting release cycle testing time by <b>40%</b>.</li>
+                                          <li>Developed and executed <b>detailed test cases and reports</b>, collaborating with developers to resolve defects and improve product quality.</li>
+                                          <li>Maintained Framework & Implemented robust <b>regression automation</b>, increasing test coverage and ensuring faster, more reliable delivery across releases.</li>
+                                    </ul>
+                                    <br>
+                                    <p>Technology - Angular, Java</p>
+                                    <p>Skills & Tools - Selenium, Keyword Driven Framework, Data Driven</p>
+                                    </div>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <div>
+                                        <span class="item-company">KPIT - Cummins</span> : 
+                                        <span class="item-title">Automation Test Engineer</span>
+                                        </div>
+                                        <div class="">Project Name: Energy Command 30 (EC-30) [Team Size - 4]</div>
+                                    </div>
+                                    <div class="item-date">Jan 2020 - Feb 2020</div>
+                                </div>
+                                <div>
+                                <p>Project Description - Energy Command 30 (EC-30) is an Automatic Generator Starting (AGS) system that provides both automatic and manual control of generators. EC-30 also provides battery sate of charge, quiet time, genset service and fault message.</p>
+                                <br>
+                                    <p class="item-company">Roles</p>
+                                     <ul style="text-align:justify;">
+                                      <li>Set up <b>Xamarin UI Test & Unit Test frameworks</b> in <b>Cucumber</b> along with <b>SpecFlow</b> and the <b>Page Object Model (POM)</b> for structured test automation.</li>
+                                      <li>Developed and executed <b>test scripts</b>, <b>feature files</b>, and <b>Build Stability Tests (BST)</b> to ensure reliability and maintainability.</li>
+                                      <li>Performed <b>Functional, Integration, and Ad-hoc testing</b>, validating application performance and end-to-end workflows.</li>
+                                      <li>Verified, identified, and reported defects using the <b>PTC Integrity tool</b>, collaborating with developers for timely resolution.</li>
+                                    </ul>
+                                    <br>
+                                    <p>Technology - Android, iOS, Xamarin</p>
+                                    <p>Skills & Tools - Cucumber, Feature File, Step Definition File, POM</p>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+
+
+                        <div class="sidebar-section certifications">
+                            <h2><i class="fas fa-certificate"></i> Certifications</h2><br>
+                            <div class="cert-item">
+                                <strong>Foundation Level</strong>
+                                <div>CST (Certified Software Tester) from Mindscript, Pune in 2013.</div>
+                            </div>
+                            <div class="cert-item">
+                                <strong>Automation Certificates</strong> - Udemy
+                                <div>Selenium WebDriver</div>
+                                <div>Cucumber</div>
+                                <div>REST API</div>
+                            </div>
+                            <div class="cert-item">
+                                <strong>AI Certificate</strong> - UpGrad
+                                <div>Generative AI Foundations</div>
+                            </div>
+                        </div>
+						
+						                   
+                        <div class="sidebar-section certifications">
+                            <h2><i class="fas fa-briefcase"></i> Work Experience Summary</h2><br>
+                            <div class="cert-item">
+                                <div><span class="item-company">Phreesia (US-Remote)</span> <span style="float:right;">Apr 2022 – Aug 2025</span></div>
+                                <div class="item-title">Technical Lead</div>
+                            </div>
+                            <div class="cert-item">
+                                <div><span class="item-company">KPIT (Pune)</span> <span style="float:right;">Oct 2017 – Nov 2020</span></div>
+                                <div class="item-title">Software Test Engineer</div>
+                            </div>
+                            <div class="cert-item">
+                                <div><span class="item-company">NIC (Pune)</span> <span style="float:right;">Apr 2015 – Sep 2017</span></div>
+                                <div class="item-title">Software Tester</div>
+                            </div>
+                            <div class="cert-item">
+                                <div><span class="item-company">XuDu (Pune)</span> <span style="float:right;">Jul 2012 – Dec 2014</span></div>
+                                <div class="item-title">Developer cum Software Tester</div>
+                            </div>
+                        </div>
+
+           
+                   
+					
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 3: Earlier Experience -->
+            <div class="page-content" id="page3">
+                <div class="main-content">
+                    <div class="left-column">
+                        <div class="section">
+                            <h2><i class="fas fa-briefcase"></i> Earlier Professional Experience</h2>
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <div>
+                                        <span class="item-company">KPIT - Cummins</span> : 
+                                        <span class="item-title">Software Test Engineer</span>
+                                        </div>
+                                        <div class="">Project Name: Guidanz - Mobile App [Team Size - 20]</div>
+                                    </div>
+                                    <div class="item-date">May 2019 - Dec 2019</div>
+                                </div>
+                                <div>
+                                <p>Project Description - Guidanz mobile app quickly identifies key engine data and J1939 fault code information that can be shared with service providers to help expedite the repair process. Data is pulled from the engine using the INLINE™ vehicle adapter that wirelessly connects to the mobile app via Bluetooth®/ cellular data connection</p>
+                                <br>
+                                    <p class="item-company">Roles</p>
+                                     <ul style="text-align:justify;">
+                                          <li>Performed <b>Functional, Integration, and Regression Testing</b> on <b>Android</b> and <b>iOS</b> apps across multiple OS versions, ensuring stability and compatibility.</li>
+                                          <li>Validated connectivity with <b>vehicle ECUs/ECMs</b> via <b>Bluetooth</b> and adaptors, verifying accurate data fetch, update, and synchronization.</li>
+                                          <li>Authored <b>STPRs</b>, created <b>V&V tasks</b> against <b>CRs</b>, and reported defects in <b>PTC Integrity tool</b> with detailed <b>video-based reproduction steps</b>.</li>
+                                          <li>Collaborated in <b>Agile/Scrum meetings</b>, raising blockers, tracking progress, and driving continuous quality improvements.</li>
+                                        </ul>
+                                    <br>
+                                    <p>Technology - Java, Android, iOS, Automotive Domain, Vehicle ECM</p>
+                                    <p>Skills & Tools - Manual Testing, Integration, Regression Testing, PTC Integrity Tool</p>
+                                    </div>
+                            </div>
+
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <div>
+                                        <span class="item-company">KPIT - Yantra</span> : 
+                                        <span class="item-title">V&V Engineer</span>
+                                        </div>
+                                        <div class="">Project Name: KIVI infotainment [Team Size - 25]</div>
+                                    </div>
+                                    <div class="item-date">Oct 2017 - May 2019</div>
+                                </div>
+                                <div>
+                                <p>Project Description - Kivi infotainment is a embedded system developed for entertainment of the commuters in the public transport (Buses). System contains internal storage which stores the shows and movies that commuters are served when they connect with the it. The content catalog and advertising were handled using a console handled by admin. A basic return in business was through advertising module</p>
+                                <br>
+                                    <p class="item-company">Roles</p>
+                                     <ul style="text-align:justify;">
+                                          <li><b>Automated the</b> Web Portal for box management and lifecycle using <b>Selenium</b>, streamlining regression and release validation.</li>
+                                          <li>Performed <b>Ads, Content, Catalog, Load, Performance, Functional, Integration, and Ad-hoc testing</b>, validating the application across multiple scenarios.</li>
+                                          <li>Conducted <b>peer reviews</b> and <b>cross-device testing</b>, ensuring compatibility after connecting to the <b>KIVI box</b> (RAM, Wi-Fi connector, PI) via <b>Wi-Fi</b> before each test cycle.</li>
+                                          <li>Took ownership of testing activities by executing rigorous test cases to <b>break the application</b>, reject unstable builds, and provide <b>release sign-off</b>.</li>
+                                    </ul>
+                                    <br>
+                                    <p>Technology - Java, Python, Web based, Android, Azure cloud platform, IoT</p>
+                                    <p>Skills & Tools - Selenium, Data Driven, Sanity, Smoke, Integration, Cross Device</p>
+                                    </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                            <div class="sidebar-section certifications">
+                            <h2><i class="fas fa-users"></i> Management & Key Person Attributes</h2><br>
+                            <div class="cert-item">
+                                <div><span class="item-company">Time Management</span></div>
+                                <div class="">Skilled in handling multiple projects and tight deadlines efficiently.</div>
+                            </div>
+                            <div class="cert-item">
+                                <div><span class="item-company">Client Handling</span></div>
+                                <div class="">Experience in managing client expectations and aligning project scope.</div>
+                            </div>
+                            <div class="cert-item">
+                                <div><span class="item-company">Demand Planning</span></div>
+                                <div class="">Manage team workload based on incoming client requests and priorities.</div>
+                            </div>
+                            <div class="cert-item">
+                                <div><span class="item-company">Issue Resolution</span></div>
+                                <div class="">Identify root causes and implement solutions to prevent escalations.</div>
+                            </div>
+                            <div class="cert-item">
+                                <div><span class="item-company">Team Coordination</span></div>
+                                <div class="">Foster open communication to ensure quality & timely delivery.</div>
+                            </div>
+                            <div class="cert-item">
+                                <div><span class="item-company">Strengths</span></div>
+                                <div class="">Quick learner with a strong ability to learn from mistakes.</div>
+                            </div>
+                        </div>
+						             <div class="sidebar-section education">
+                            <h2><i class="fas fa-graduation-cap"></i> Education</h2><br>
+                            <div class="education-item">
+                                <div class="item-company">University of Pune</div>
+                                <div class=""><b>Master of Computer Science</b></div>
+                                <div class="">2009 - 2011</div>
+                                <br>
+                                <div class=""><b>Bachelor of Computer Science</b></div>
+                                <div>2005 - 2009</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 4: Early Career & Management Skills -->
+            <div class="page-content" id="page4">
+                <div class="main-content no-right-column">
+                    <div class="left-column">
+                        <div class="section">
+                            <h2><i class="fas fa-briefcase"></i> Early Career</h2>
+							    <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <div>
+                                        <span class="item-company">NIC</span> : 
+                                        <span class="item-title">Software Tester</span>
+                                        </div>
+                                        <div class="">Project Name: NGDRS | Clinical Trial | 7/12 Application [Team Size - 9]</div>
+                                    </div>
+                                    <div class="item-date">April 2015 - Sep 2017</div>
+                                </div>
+                                <div>
+                                <p>Project Description - The National Generic Registration System (NGDRS) enables citizens to register documents with a Registering Officer, ensuring conservation of evidence, assurance of title, document transparency, and fraud prevention. It provides secure online document entry with OTP-based authentication and an integrated property valuation module that calculates property values automatically.</p>
+                                <br>
+                                    <p class="item-company">Roles</p>
+                                     <ul style="text-align:justify;">
+                                          <li>Analyzed project requirements and prepared detailed <b>test scenarios</b> and <b>test cases</b> aligned with functional specifications.</li>
+                                          <li>Executed test cases, reported defects with defined <b>severity</b> and <b>priority</b>, and actively contributed to <b>design change discussions</b>.</li>
+                                          <li>Performed extensive <b>security testing</b> using tools like <b>Burp Suite</b> and <b>IBM Rational AppScan</b> to identify vulnerabilities and strengthen application security.</li>
+                                          <li>Conducted <b>Functional</b> and <b>Regression testing</b>, ensuring application stability, compliance, and reliability across releases.</li>
+                                    </ul>
+                                    <br>
+                                    <p>Technology - CakePHP, HTML, Bootstrap, Ajax, Jquery</p>
+                                    <p>Skills & Tools - Manual Testing, Security Testing Tool Burpsuite, IBM Rational Scan</p>
+                                    </div>
+                            </div>
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <div>
+                                        <span class="item-company">XuDu Technologies</span> : 
+                                        <span class="item-title">Dev. Cum Software Tester</span>
+                                        </div>
+                                        <div class="">Project Name: Community Network [Team Size - 4]</div>
+                                    </div>
+                                    <div class="item-date">July 2012 - Dec 2014</div>
+                                </div>
+                                <div>
+                                <p>Project Description - A social networking application enabling users to create personalized profiles with photos and videos, connect via email and instant messaging, and interact through blogs, forums, reviews, events, and winks. Features include photo/video uploads (public/private), content search, favorites, member blocking, and secure storage for confidential information, ensuring both engagement and privacy.</p>
+                                <br>
+                                    <p class="item-company">Roles</p>
+                                     <ul style="text-align:justify;">
+                                          <li>Performed <b>Black Box, Functional, GUI, Browser Compatibility, Integration, Regression, Smoke,</b> and <b>Exploratory testing</b> across the website.</li>
+                                          <li>Reported defects using <b>Mantis Bug Tracker</b> and prepared comprehensive <b>test summary reports</b> for stakeholders.</li>
+                                          <li>Validated the full website and its multiple subdomain functionalities to ensure seamless user experience and system reliability.</li>
+                                          <li>Participated in implementing <b>HTML/CSS changes</b> to create landing pages, perform <b>SEO optimizations</b>, and review content for usability.</li>
+                                    </ul>
+                                    <br>
+                                    <p>Technology - PHP, Smarty Template Engine, Jquery, AJAX, MYSQL, CSS</p>
+                                    <p>Skills & Tools - Manual Testing, Cross Browser, SEO, Mantis</p>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h2><i class="fas fa-chart-line"></i> Professional Development</h2>
+                            <div class="experience-item">
+                                <div class="item-header">
+                                    <div>
+                                        <div class="item-title">Continuous Learning & Innovation</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <ul style="text-align:justify;">
+                                        <li><b>AI & Automation Exploration:</b> Actively exploring emerging technologies including Generative AI, N8N workflow automation, MCP Servers, AI Agents, TestRigor, and Cursor for enhanced testing efficiency.</li>
+                                        <li><b>Industry Trends:</b> Staying updated with latest testing methodologies, tools, and best practices in software quality assurance.</li>
+                                        <li><b>Knowledge Sharing:</b> Regular participation in tech communities and knowledge sharing sessions to contribute to the QA community.</li>
+                                        <li><b>Cross-Domain Expertise:</b> Developed versatile skills across multiple domains including automotive, IoT, web applications, mobile apps, and marketing automation.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button id="prevBtn" onclick="changePage(-1)">
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <button class="page-btn active" onclick="goToPage(1)">1</button>
+                <button class="page-btn" onclick="goToPage(2)">2</button>
+                <button class="page-btn" onclick="goToPage(3)">3</button>
+                <button class="page-btn" onclick="goToPage(4)">4</button>
+                <button id="nextBtn" onclick="changePage(1)">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 4;
+
+        function showPage(pageNumber) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+            
+            // Update pagination buttons
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.page-btn:nth-child(${pageNumber + 1})`).classList.add('active');
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = pageNumber === 1;
+            document.getElementById('nextBtn').disabled = pageNumber === totalPages;
+            
+            currentPage = pageNumber;
+        }
+
+        function goToPage(pageNumber) {
+            if (pageNumber >= 1 && pageNumber <= totalPages) {
+                showPage(pageNumber);
+            }
+        }
+
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage >= 1 && newPage <= totalPages) {
+                goToPage(newPage);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changePage(-1);
+            } else if (event.key === 'ArrowRight') {
+                changePage(1);
+            }
+        });
+
+        // Initialize
+        showPage(1);
+
+        // Animate skill progress bars on scroll
+        function animateSkills() {
+            const skillBars = document.querySelectorAll('.progress-fill');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width') || '80%';
+                bar.style.width = width;
+            });
+        }
+
+        // Trigger animations when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    if (entry.target.classList.contains('skills-grid')) {
+                        animateSkills();
+                    }
+                }
+            });
+        });
+
+        // Observe elements for animation
+        document.querySelectorAll('.section, .sidebar-section').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects and interactions
+        document.querySelectorAll('.experience-item, .education-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.borderLeftColor = '#e74c3c';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.borderLeftColor = '#3498db';
+            });
+        });
+
+        // Smooth scroll effect for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
